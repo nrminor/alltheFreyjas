@@ -209,7 +209,6 @@ process FREYJA_AGGREGATE {
 	/*
 	*/
 
-	tag "${sample_id}"
 	publishDir params.aggregate_result, mode: 'copy'
 
 	input:
@@ -223,7 +222,7 @@ process FREYJA_AGGREGATE {
 
 	script:
 	"""
-	freyja aggregate ./ --output aggregated.tsv
+	freyja aggregate ./ --output aggregated.tsv --ext ".demix.tsv"
 	"""
 
 }
@@ -233,7 +232,6 @@ process FREYJA_PLOT {
 	/*
 	*/
 
-	tag "${sample_id}"
 	publishDir params.plot_result, mode: 'copy'
 
 	input:
